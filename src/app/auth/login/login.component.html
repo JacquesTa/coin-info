@@ -1,0 +1,72 @@
+<div class="flex h-screen w-full">
+  <div class="flex flex-col bg-gray w-full h-full">
+    <div class="flex gap-2 items-center w-fit p-4">
+      <img
+        class="w-10 h-10 bg-blue rounded-full"
+        src="../../../assets/images/coin-Info-1.png"
+        alt=""
+      />
+      <div class="flex text-sm text-white font-pacifico font-semibold">
+        Coin Info
+      </div>
+    </div>
+    <div class="flex flex-col text-white justify-center items-center">
+      <div class="font-ubuntu text-2xl">
+        Login to start your crypto journey.
+      </div>
+      <div class="text-sm font-poppins mt-10 -mb-10">
+        Welcome back, please enter your credentials below.
+      </div>
+    </div>
+
+    <div class="flex flex-col h-full justify-center items-center">
+      <form
+        [formGroup]="loginForm"
+        class="flex flex-col items-center justify-center"
+      >
+        <div
+          class="flex items-center border-2 border-blue py-2 px-3 rounded-2xl h-14 bg-white w-full"
+        >
+          <img src="assets/images/8utilisateur.svg" class="h-5 w-5" alt="" />
+          <input
+            class="px-2 outline-none border-none w-full h-11"
+            type="text"
+            formControlName="email"
+            placeholder="Email"
+          />
+        </div>
+        <div
+          class="flex items-center border-2 border-blue py-2 px-3 rounded-2xl h-14 bg-white mt-8 w-full"
+        >
+          <img src="assets/images/8cadena.png" class="h-5 w-5" alt="" />
+          <input
+            class="px-2 outline-none border-none w-full h-11"
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="flex flex-col items-center justify-center h-auto">
+          <button
+            class="flex justify-center items-center py-6 px-20 text-white text-xl font-poppins bg-blue h-2 rounded-full hover:bg-opacity-80 mt-8"
+            (click)="onLogin()"
+          >
+            Login
+          </button>
+          <div class="h-2 mt-8 text-blue text-sm font-poppins">
+            Don't have an account yet?
+            <span
+              class="text-white text-sm font-poppins cursor-pointer hover:text-blue border-blue"
+              (click)="onSignUp()"
+            >
+              Click here
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    class="flex flex-col w-full bg-bg-registration bg-no-repeat bg-cover bg-center"
+  ></div>
+</div>

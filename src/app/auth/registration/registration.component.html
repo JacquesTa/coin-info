@@ -1,0 +1,38 @@
+<div
+  class="flex flex-col h-screen w-full bg-bg-registration bg-no-repeat bg-cover bg-center"
+>
+  <div class="flex gap-2 items-center w-fit p-4">
+    <img
+      class="w-10 h-10 bg-blue rounded-full"
+      src="../../../assets/images/coin-Info-1.png"
+      alt=""
+    />
+    <div class="flex text-sm text-white font-pacifico font-semibold">
+      Coin Info
+    </div>
+  </div>
+  <div class="flex items-center justify-center">
+    <div class="flex flex-col text-6xl text-blue font-ubuntu py-10">
+      <span>The best place to find all</span>
+      <span
+        >you want to know about
+        <p class="text-white">crypto</p>
+      </span>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center justify-center mt-56 h-auto">
+    <button
+      class="flex justify-center items-center py-6 px-52 text-blue text-xl font-poppins bg-white bg-opacity-80 h-2 rounded-full hover:bg-opacity-25 hover:text-white mt-8"
+      (click)="onLogin()"
+    >
+      Login
+    </button>
+    <div
+      class="h-2 mt-8 text-white text-sm font-poppins cursor-pointer hover:text-blue"
+      (click)="onSignUp()"
+    >
+      Create account
+    </div>
+  </div>
+</div>
