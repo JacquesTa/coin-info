@@ -11,6 +11,7 @@ import { CustomButtonComponent } from './shared/components/custom-button/custom-
 import { ReactiveFormsModule } from '@angular/forms';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { CustomPageLayoutComponent } from './components/custom-page-layout/custom-page-layout.component';
+import { MaterialModule } from './shared/modules/material.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,12 @@ import { CustomPageLayoutComponent } from './components/custom-page-layout/custo
     SideNavComponent,
     CustomPageLayoutComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MaterialModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

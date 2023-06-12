@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,11 @@ export class LoginComponent {
   loginForm!: FormGroup;
   submitted = false;
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private apiService: ApiService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -29,10 +34,16 @@ export class LoginComponent {
 
   // Redirect the user to the login screen
   onLogin() {
-    console.log(this.loginControls);
-    console.log(this.emailControls);
-    console.log(this.passwordControls);
-    this.router.navigateByUrl('dashboard');
+    this.apiService.login().subscribe((res) => {
+      if (this.apiService.isLoggedIn) {
+        const redirect = this.apiService.redirectUrl
+          ? this.router.parseUrl(this.apiService.redirectUrl)
+          : 'login';
+        // this.message = 'status: logged in'
+
+        this.router.navigateByUrl(redirect);
+      }
+    });
   }
 
   // Redirect the user to the sign-up screen
@@ -49,5 +60,11 @@ export class LoginComponent {
   }
   get passwordControls() {
     return this.loginForm.value.password;
+  }
+
+  //
+  logout() {
+    this.apiService.logout();
+    // this.message = 'status: logged out'
   }
 }
